@@ -41,18 +41,18 @@ public class ServerUtil {
      */
     @SneakyThrows
     public static ServerSocket createServerSocket(int port) {
-        throw new ExerciseNotCompletedException(); // todo: implement according to javadoc and verify by ServerUtilTest
+        return new ServerSocket(port);
     }
 
     /**
-     * This method accepts a client on a given serverSocket and returns a accepted socket instance.
+     * This method accepts a client on a given serverSocket and returns an accepted socket instance.
      *
      * @param serverSocket an open server socket
      * @return an instance of a accepted client socket
      */
     @SneakyThrows
     public static Socket acceptClientSocket(ServerSocket serverSocket) {
-        throw new ExerciseNotCompletedException(); // todo: implement according to javadoc and verify by ServerUtilTest
+        return serverSocket.accept();
     }
 
     /**
@@ -66,7 +66,8 @@ public class ServerUtil {
      */
     @SneakyThrows
     public static String readMessageFromSocket(Socket socket) {
-        throw new ExerciseNotCompletedException(); // todo: implement according to javadoc and verify by ServerUtilTest
+        var reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        return reader.readLine();
     }
 
     /**
